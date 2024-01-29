@@ -27,12 +27,12 @@ jobs:
 
       - run: |
           mkdir backend/dist
-          mv frontend/dist backend/dist
+          mv frontend/dist/* backend/dist/
       
       - name: Upload dist
         uses: actions/cache/save@v4
         with:
-          path: backend
+          path: backend/dist
           key: BackendWithDist
       
       - name: Install backend dep and lint
@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/cache/restore@v4
         with:
-          path: backend
+          path: backend/dist
           key: BackendWithDist
 
       - uses: actions/checkout@v3
