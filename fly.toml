@@ -7,7 +7,7 @@ app = "pistepankki"
 primary_region = "arn"
 
 [build]
-  dockerfile = "./Dockerfile"
+  dockerfile = "./backend/Dockerfile"
 
 [http_service]
   internal_port = 3001
