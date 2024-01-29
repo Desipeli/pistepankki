@@ -25,7 +25,7 @@
     "prod": "cross-env vite --mode prod",
     "build": "vite --mode prod build",
     "eject": "vite eject",
-    "eslint": "eslint ."
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
