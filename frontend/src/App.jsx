@@ -1,13 +1,3 @@
-// import Navbar from './components/navbar'
-
-// const App = () => {
-//   document.title = 'HELLooo'
-//   return <Navbar />
-// }
-
-// export default App
-
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
