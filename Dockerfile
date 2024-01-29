@@ -2,7 +2,7 @@ FROM --platform=$TARGETPLATFORM node AS build
 
 WORKDIR usr/src/app
 
-COPY . .
+COPY ./backend .
 
 EXPOSE 3001
 
