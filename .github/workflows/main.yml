@@ -35,7 +35,8 @@ jobs:
           cd backend
           npm install
           npm run lint
-          npm test
+
+      - run: cd backend && npm test
         env:
           SECRET: ${{ secrets.SECRET }}
 
