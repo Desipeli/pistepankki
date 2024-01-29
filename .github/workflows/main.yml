@@ -53,7 +53,7 @@ jobs:
           path: frontend/dist
           key: dist
       - run: |
-          ls
+          ls .
           ls frontend
           mv frontend/dist backend/dist
       - uses: actions/checkout@v3
