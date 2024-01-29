@@ -86,7 +86,7 @@ const App = () => {
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'Pistepankki'
+    document.title = 'qwerty'
   }, [])
 
   return (
