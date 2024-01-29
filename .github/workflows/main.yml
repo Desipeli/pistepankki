@@ -51,8 +51,8 @@ jobs:
       - uses: actions/cache@v4
         with:
           key: dist
-      - run: |
-          mv dist backend/dist
+          run: |
+            mv dist backend/dist
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
