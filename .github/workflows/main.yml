@@ -26,10 +26,10 @@ jobs:
           npm run build
       
       - name: Upload dist
-        uses: actions/upload-artifact@v4
+        uses: actions/cache@v4
         with:
-          name: dist
           path: frontend/dist
+          key: dist
       
       - name: Install backend dep and lint
         run: |
@@ -48,14 +48,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/cache@v4
         with:
           name: dist
-          path: frontend/dist
-
       - run: |
-          rm -rf backend/dist
-          mv frontend/dist backend/dist
+          mv dist backend/dist
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
