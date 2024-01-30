@@ -42,8 +42,6 @@ const App = () => {
     }
   }, [])
 
-  document.title = 'moeiwsfoasef'
-
   return (
     <div className="App">
       <Navbar user={user} setUser={setUser} theme={theme} setTheme={setTheme} />
@@ -86,7 +84,7 @@ const App = () => {
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'qwerty'
+    document.title = 'Pistepankki'
   }, [])
 
   return (
