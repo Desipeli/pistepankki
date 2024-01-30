@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../Contexts/ThemeContext'
 
 const Navbar = (props) => {
-  const { user, theme, setTheme } = props
+  // const { user, theme, setTheme } = props
   const [hamburgerMenu, setHamburgerMenu] = useState(false)
+  // const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const { theme, setTheme } = useContext(ThemeContext)
 
   useEffect(() => {
     const handleResize = () => {
@@ -13,10 +16,10 @@ const Navbar = (props) => {
     handleResize()
   }, [])
 
-  const handleThemeChange = (theme) => {
-    document.documentElement.className = theme
-    setTheme(theme)
-    window.localStorage.setItem('theme', theme)
+  const handleThemeChange = (newTheme) => {
+    document.documentElement.className = newTheme
+    setTheme(newTheme)
+    window.localStorage.setItem('theme', newTheme)
   }
 
   return (
@@ -39,9 +42,9 @@ const Navbar = (props) => {
       <HamburgerMenu
         hamburgerMenu={hamburgerMenu}
         setHamburgerMenu={setHamburgerMenu}
-        user={user}
+        // user={user}
       />
-      <NormalMenu user={user} />
+      {/* <NormalMenu user={user} /> */}
       <div id="hamburger" onClick={() => setHamburgerMenu(!hamburgerMenu)}>
         &#9776;
       </div>
