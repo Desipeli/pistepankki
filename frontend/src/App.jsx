@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import Navbar from './components/navbar'
+import Navbar from './components/Navbar'
 import LoginScreen from './pages/login'
 import Match from './pages/match'
 import { LogOut } from './pages/login'
 
-import Notification from './components/notification'
+import Notification from './components/Notification'
 import BrowseGames from './pages/browse'
 import Game from './pages/game'
 import Profile from './pages/profile'
