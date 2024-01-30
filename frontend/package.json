@@ -23,7 +23,7 @@
     "start": "cross-env REACT_APP_ENVIRONMENT='production' vite",
     "dev": "cross-env vite --mode dev",
     "prod": "cross-env vite --mode prod",
-    "build": "vite --mode prod build",
+    "build": "vite --mode prod build --outDir ../backend/dist",
     "eject": "vite eject",
     "lint": "eslint ."
   },
