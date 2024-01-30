@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import login from '../services/loginService'
 import { logout } from '../services/loginService'
+import { MainContext } from '../Contexts/MainContext'
 
-const LoginScreen = (props) => {
+const LoginScreen = () => {
   useEffect(() => {
     document.title = 'Login'
   }, [])
-  const { user, setUser, setTimedMessage } = props
+  const { user, setUser, setTimedMessage } = useContext(MainContext)
   if (user) {
     return <div>Logged in as {user.username}</div>
   }

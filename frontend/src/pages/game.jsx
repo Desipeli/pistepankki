@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteGame, getGameById } from '../services/gameService'
+import { MainContext } from '../Contexts/MainContext'
 
-const Game = (props) => {
-  const { user, setTimedMessage } = props
+const Game = () => {
+  const { user, setTimedMessage } = useContext(MainContext)
   const { id } = useParams()
   const [game, setGame] = useState()
   const [loading, setLoading] = useState(true)

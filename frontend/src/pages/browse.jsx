@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getAll } from '../services/gameService'
 import getSports from '../services/sportService'
 import getAllUsers from '../services/userService'
+import { MainContext } from '../Contexts/MainContext'
 
-const BrowseGames = (props) => {
-  const { setTimedMessage } = props
+const BrowseGames = () => {
+  const { setTimedMessage } = useContext(MainContext)
   const [sports, setSports] = useState([])
   const [sport, setSport] = useState('')
   const [users, setUsers] = useState([])

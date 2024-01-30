@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import getSports from '../services/sportService'
 import getAllUsers from '../services/userService'
 import {
@@ -8,9 +8,10 @@ import {
   validateScores,
 } from '../services/matchService'
 import { useNavigate } from 'react-router-dom'
+import { MainContext } from '../Contexts/MainContext'
 
-const Match = (props) => {
-  const { setTimedMessage, user } = props
+const Match = () => {
+  const { setTimedMessage, user } = useContext(MainContext)
   const [players, setPlayers] = useState([])
   const [sport, setSport] = useState([])
   const [matchOn, setMatchOn] = useState(false)

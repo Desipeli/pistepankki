@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
-import LoginScreen from './pages/login'
-import Match from './pages/match'
-import { LogOut } from './pages/login'
+import LoginScreen from './pages/Login'
+import Match from './pages/Match'
+import { LogOut } from './pages/Login'
 
 import Notification from './components/Notification'
-import BrowseGames from './pages/browse'
-import Game from './pages/game'
-import Profile from './pages/profile'
+import BrowseGames from './pages/Browse'
+import Game from './pages/Game'
+import Profile from './pages/Profile'
 
-import { ThemeContext } from './Contexts/ThemeContext'
+import { MainContext } from './Contexts/MainContext'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -45,46 +45,35 @@ const App = () => {
   }, [])
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <MainContext.Provider
+      value={{
+        theme,
+        setTheme,
+        user,
+        setUser,
+        message,
+        setMessage,
+        currentMessageTimeout,
+        setCurrentMessageTimeout,
+        setTimedMessage,
+      }}
+    >
       <div className="App">
-        <Navbar user={user} setUser={setUser} />
-        <Notification message={message} />
+        <Navbar />
+        <Notification />
         <div id="content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/login"
-              element={
-                <LoginScreen
-                  user={user}
-                  setUser={setUser}
-                  setTimedMessage={setTimedMessage}
-                />
-              }
-            />
+            <Route path="/login" element={<LoginScreen />} />
             <Route path="/logout" element={<LogOut />} />
-            <Route
-              path="/newmatch"
-              element={<Match setTimedMessage={setTimedMessage} user={user} />}
-            />
-            <Route
-              path="/browse"
-              element={<BrowseGames setTimedMessage={setTimedMessage} />}
-            />
-            <Route
-              path="/game/:id"
-              element={<Game setTimedMessage={setTimedMessage} user={user} />}
-            />
-            <Route
-              path="/profile"
-              element={
-                <Profile setTimedMessage={setTimedMessage} user={user} />
-              }
-            />
+            <Route path="/newmatch" element={<Match />} />
+            <Route path="/browse" element={<BrowseGames />} />
+            <Route path="/game/:id" element={<Game />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
       </div>
-    </ThemeContext.Provider>
+    </MainContext.Provider>
   )
 }
 

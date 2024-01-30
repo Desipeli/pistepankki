@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { validatePassword, changePassword } from '../services/userService'
+import { MainContext } from '../Contexts/MainContext'
 
-const Profile = (props) => {
-  const { user, setTimedMessage } = props
+const Profile = () => {
+  const { user, setTimedMessage } = useContext(MainContext)
 
   if (!user)
     return (
