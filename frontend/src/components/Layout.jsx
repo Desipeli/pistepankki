@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import { Box } from '@mui/material'
 
 export const Layout = () => (
-  <Box display="flex" flexDirection={'column'} minHeight={'100vh'}>
+  <Box>
     <Navbar />
     <Outlet />
   </Box>

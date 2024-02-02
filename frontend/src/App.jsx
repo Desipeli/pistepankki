@@ -1,17 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
-
-import Navbar from './components/Navbar'
-import LoginScreen from './pages/Login'
-import Match from './pages/Match'
-import { LogOut } from './pages/Login'
-
-import Notification from './components/Notification'
-import BrowseGames from './pages/Browse'
-import Game from './pages/Game'
-import Profile from './pages/Profile'
+import { RouterProvider } from 'react-router-dom'
 
 import { MainContext } from './Contexts/MainContext'
+import { router } from './Router'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -58,34 +49,8 @@ const App = () => {
         setTimedMessage,
       }}
     >
-      <div className="App">
-        <Navbar />
-        <Notification />
-        <div id="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginScreen />} />
-            <Route path="/logout" element={<LogOut />} />
-            <Route path="/newmatch" element={<Match />} />
-            <Route path="/browse" element={<BrowseGames />} />
-            <Route path="/game/:id" element={<Game />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-        </div>
-      </div>
+      <RouterProvider router={router} />
     </MainContext.Provider>
-  )
-}
-
-const Home = () => {
-  useEffect(() => {
-    document.title = 'Pistepankki'
-  }, [])
-
-  return (
-    <div>
-      <p></p>
-    </div>
   )
 }
 
