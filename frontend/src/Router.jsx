@@ -20,7 +20,7 @@ export const routes = [
         element: <BrowseGames />,
       },
       {
-        path: '/game',
+        path: '/game/:id',
         element: <Game />,
       },
       {
